@@ -78,6 +78,26 @@ namespace GitAdfInfoTest
             // Act & Assert
             Assert.Throws<ArgumentException>(() => _textService.ReverseString(null));
         }
+
+        [Fact]
+        public void FunnyReverseString_ValidInput_ReturnsFunnyReversedString()
+        {
+            // Arrange
+            string input = "hello";
+
+            // Act
+            var result = _textService.FunnyReverseString(input);
+
+            // Assert
+            Assert.Equal("OllEh", result);
+        }
+
+        [Fact]
+        public void FunnyReverseString_NullInput_ThrowsArgumentException()
+        {
+            // Act & Assert
+            Assert.Throws<ArgumentException>(() => _textService.FunnyReverseString(null));
+        }
     }
 
 }
