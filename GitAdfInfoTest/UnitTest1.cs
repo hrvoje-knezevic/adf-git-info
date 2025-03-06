@@ -5,10 +5,12 @@ namespace GitAdfInfoTest
     public class NumberServiceTests
     {
         private readonly NumberService _numberService;
+        private readonly TextService _textService;
 
         public NumberServiceTests()
         {
             _numberService = new NumberService();
+            _textService = new TextService();
         }
 
         [Fact]
@@ -55,6 +57,26 @@ namespace GitAdfInfoTest
         {
             // Act & Assert
             Assert.Throws<ArgumentException>(() => _numberService.OrderNumbers(null));
+        }
+
+        [Fact]
+        public void ReverseString_ValidInput_ReturnsReversedString()
+        {
+            // Arrange
+            string input = "hello";
+
+            // Act
+            var result = _textService.ReverseString(input);
+
+            // Assert
+            Assert.Equal("olleh", result);
+        }
+
+        [Fact]
+        public void ReverseString_NullInput_ThrowsArgumentException()
+        {
+            // Act & Assert
+            Assert.Throws<ArgumentException>(() => _textService.ReverseString(null));
         }
     }
 
