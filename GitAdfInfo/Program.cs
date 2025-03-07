@@ -13,3 +13,5 @@ foreach (var item in orderedNumbers)
 {
     Console.WriteLine(item);
 }
+
+Console.WriteLine("Finished");
